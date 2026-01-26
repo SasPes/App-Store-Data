@@ -1,5 +1,5 @@
 {
-  "name": "Hello World Example",
+  "name": "Hello World",
   "description": "A simple test app for the Bruce JavaScript interpreter that displays 'Hello World!' on the screen.",
   "category": "Utilities",
   "version": "1.0.0",
@@ -9,8 +9,8 @@
   "path": "/",
   "files": [
     {
-      "source": "Hello World Example.js",
-      "destination": "Hello World.js"
+      "source": "Hello World.js",
+      "destination": "Hello World Example.js"
     }
   ]
 }
