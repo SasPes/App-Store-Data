@@ -1,0 +1,12 @@
+{
+  "category": "Infrared",
+  "count": 1,
+  "apps": [
+    {
+      "name": "IR Bruce Force",
+      "description": "Brute force IR remote control codes",
+      "version": "1.0.0",
+      "slug": "BruceDevices/firmware/IR Bruce Force"
+    }
+  ]
+}

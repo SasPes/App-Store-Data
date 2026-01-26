@@ -1,6 +1,6 @@
 {
-  "totalCategories": 4,
-  "totalApps": 7,
+  "totalCategories": 7,
+  "totalApps": 10,
   "categories": [
     {
       "name": "Audio",
@@ -13,6 +13,16 @@
       "count": 1
     },
     {
+      "name": "Infrared",
+      "slug": "infrared",
+      "count": 1
+    },
+    {
+      "name": "RF",
+      "slug": "rf",
+      "count": 1
+    },
+    {
       "name": "Tools",
       "slug": "tools",
       "count": 1
@@ -21,6 +31,11 @@
       "name": "Utilities",
       "slug": "utilities",
       "count": 4
+    },
+    {
+      "name": "WiFi",
+      "slug": "wifi",
+      "count": 1
     }
   ]
 }

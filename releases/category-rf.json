@@ -1,0 +1,12 @@
+{
+  "category": "RF",
+  "count": 1,
+  "apps": [
+    {
+      "name": "RF Bruce Force",
+      "description": "Brute force RF signals",
+      "version": "1.0.0",
+      "slug": "BruceDevices/firmware/RF Bruce Force"
+    }
+  ]
+}

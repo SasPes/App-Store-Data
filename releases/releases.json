@@ -1,5 +1,5 @@
 {
-  "count": 7,
+  "count": 10,
   "apps": [
     {
       "name": "Calculator",
@@ -32,16 +32,34 @@
       "slug": "emericklaw/Bruce-Hello-World-Example-App/Hello World"
     },
     {
+      "name": "IR Bruce Force",
+      "description": "Brute force IR remote control codes",
+      "version": "1.0.0",
+      "slug": "BruceDevices/firmware/sd_files/interpreter/IR Bruce Force"
+    },
+    {
       "name": "Lock Device",
       "description": "Password protection app that locks your Bruce device on startup or on-demand",
       "version": "1.1.0",
       "slug": "emericklaw/Bruce-Lock-Device-App/Lock Device"
     },
     {
+      "name": "RF Bruce Force",
+      "description": "Brute force RF signals",
+      "version": "1.0.0",
+      "slug": "BruceDevices/firmware/sd_files/interpreter/RF Bruce Force"
+    },
+    {
       "name": "Tone Generator",
       "description": "Tone generator that can play different frequencies/musical notes with customisable duration",
       "version": "1.0.0",
       "slug": "emericklaw/Bruce-Tone-Generator-App/Tone Generator"
+    },
+    {
+      "name": "WiFi Bruce Force",
+      "description": "Brute force WiFi network password with dictionary attack",
+      "version": "1.0.0",
+      "slug": "BruceDevices/firmware/sd_files/interpreter/WiFi Bruce Force"
     }
   ]
 }
