@@ -134,7 +134,6 @@ async function main() {
         const releaseData = {
             category: category,
             count: apps.length,
-            lastUpdated: new Date().toISOString(),
             apps: filteredApps
         };
         
@@ -161,7 +160,6 @@ async function main() {
         })).sort((a, b) => a.name.localeCompare(b.name));
         
         const categoriesData = {
-            lastUpdated: new Date().toISOString(),
             totalCategories: categoriesWithReleases.length,
             totalApps: Object.values(categorizedApps).reduce((sum, apps) => sum + apps.length, 0),
             categories: categoriesWithCounts
@@ -198,7 +196,6 @@ async function main() {
         allApps.sort((a, b) => a.name.localeCompare(b.name));
         
         const releasesData = {
-            lastUpdated: new Date().toISOString(),
             count: allApps.length,
             apps: allApps
         };
