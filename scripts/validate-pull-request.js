@@ -662,8 +662,8 @@ async function main() {
                 await validateDirectoryFiles(dir, directMetadataFile, directLogoPath);
             } else {
                 // This directory doesn't contain metadata.json directly
-                // Check if it contains subdirectories with metadata.json
-                console.log(`  - 🔍 Checking for app subdirectories...`);
+                // Check if it contains subdirectories with metadata.json (repositories/owner/repo/app structure)
+                console.log(`  - 🔍 Checking for repository subdirectories...`);
                 
                 const subdirs = fs.readdirSync(dir, { withFileTypes: true })
                     .filter(dirent => dirent.isDirectory())
@@ -676,17 +676,51 @@ async function main() {
                     const subdirLogoPath = path.join(subdirPath, 'logo.png');
                     
                     if (fs.existsSync(subdirMetadataFile)) {
+                        // Direct metadata.json in repo directory
                         foundApps = true;
-                        console.log(`  - 📁 App subdirectory: \`${subdir}\``);
+                        console.log(`  - 📁 Repository: \`${subdir}\``);
                         await validateDirectoryFiles(subdirPath, subdirMetadataFile, subdirLogoPath);
+                    } else {
+                        // Check for app subdirectories within this repo directory
+                        console.log(`  - 📁 Repository: \`${subdir}\``);
+                        console.log(`    - 🔍 Checking for app subdirectories...`);
+                        
+                        try {
+                            const appSubdirs = fs.readdirSync(subdirPath, { withFileTypes: true })
+                                .filter(dirent => dirent.isDirectory())
+                                .map(dirent => dirent.name);
+                            
+                            let foundAppsInRepo = false;
+                            for (const appSubdir of appSubdirs) {
+                                const appSubdirPath = path.join(subdirPath, appSubdir);
+                                const appMetadataFile = path.join(appSubdirPath, 'metadata.json');
+                                const appLogoPath = path.join(appSubdirPath, 'logo.png');
+                                
+                                if (fs.existsSync(appMetadataFile)) {
+                                    foundApps = true;
+                                    foundAppsInRepo = true;
+                                    console.log(`    - 📁 App subdirectory: \`${appSubdir}\``);
+                                    await validateDirectoryFiles(appSubdirPath, appMetadataFile, appLogoPath);
+                                }
+                            }
+                            
+                            if (!foundAppsInRepo) {
+                                console.log(`    - 📄 \`metadata.json\``);
+                                console.log(`      - ❌ File not found in any app subdirectories`);
+                                console.log(`    - 📄 \`logo.png\``);
+                                console.log(`      - ❌ File not found in any app subdirectories`);
+                            }
+                        } catch (error) {
+                            console.log(`    - ❌ Error reading repository directory: ${error.message}`);
+                        }
                     }
                 }
                 
                 if (!foundApps) {
                     console.log(`  - 📄 \`metadata.json\``);
-                    console.log(`    - ❌ File not found`);
+                    console.log(`    - ❌ File not found in any subdirectories`);
                     console.log(`  - 📄 \`logo.png\``);
-                    console.log(`    - ❌ File not found`);
+                    console.log(`    - ❌ File not found in any subdirectories`);
                 }
             }
 
