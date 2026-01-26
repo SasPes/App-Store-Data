@@ -1,0 +1,16 @@
+{
+  "name": "Calculator",
+  "description": "Calculator - written for T-Embed",
+  "category": "Utilities",
+  "version": "1.0.0",
+  "commit": "300f5d00ba00599105e3b1d8790f3c6bf3f4f512",
+  "owner": "BruceDevices",
+  "repo": "firmware",
+  "path": "/sd_files/interpreter/",
+  "files": [
+    {
+      "source": "calculator_t-embed.js",
+      "destination": "Calculator.js"
+    }
+  ]
+}
