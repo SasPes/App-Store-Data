@@ -186,6 +186,7 @@ async function main() {
                 
                 allApps.push({
                     name: app.name,
+                    description: app.description,
                     version: app.version,
                     slug: slug
                 });
