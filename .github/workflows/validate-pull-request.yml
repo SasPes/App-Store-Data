@@ -1,4 +1,4 @@
-name: Validate Metadata
+name: Validate Pull Request
 
 on:
   pull_request:
@@ -32,11 +32,11 @@ jobs:
       with:
         node-version: '18'
 
-    - name: Validate metadata and post PR comment
+    - name: Validate pull request and post comment
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         GITHUB_REPOSITORY: ${{ github.repository }}
         GITHUB_EVENT_NAME: ${{ github.event_name }}
         GITHUB_EVENT_PATH: ${{ github.event_path }}
         PR_NUMBER: ${{ github.event.number }}
-      run: node scripts/validate-and-comment.js ${{ steps.changed-files.outputs.all_changed_files }}
+      run: node scripts/validate-pull-request.js ${{ steps.changed-files.outputs.all_changed_files }}
