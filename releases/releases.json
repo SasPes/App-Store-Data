@@ -1,6 +1,12 @@
 {
-  "count": 22,
+  "count": 23,
   "apps": [
+    {
+      "name": "App Store",
+      "description": "App store for Bruce devices with over-the-air install and updates for scripts and themes",
+      "version": "1.0.0",
+      "slug": "BruceDevices/App-Store/App Store"
+    },
     {
       "name": "Arcade Games",
       "description": "Arcade Games for M5 Stick",

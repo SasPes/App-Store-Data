@@ -1,7 +1,13 @@
 {
   "category": "Tools",
-  "count": 1,
+  "count": 2,
   "apps": [
+    {
+      "name": "App Store",
+      "description": "App store for Bruce devices with over-the-air install and updates for scripts and themes",
+      "version": "1.0.0",
+      "slug": "BruceDevices/App-Store/App Store"
+    },
     {
       "name": "Device Info",
       "description": "Device information display showing hardware details and memory statistics",
