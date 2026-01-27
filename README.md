@@ -12,7 +12,7 @@ Before you can publish an app or theme, you'll need:
 4. **Basic knowledge** of Git and GitHub
 5. **App/Theme file layout**
    - **Apps** (and files) will be created on the device in the `/BruceJS/<category>/` directory - use `__dirpath` to reference the folder the script is being ran from if your app needs access to other files
-   - **Themes** these will be created in the `/BruceThemes/<theme name>` folder
+   - **Themes** these will be created on the device in the `/BruceThemes/<theme name>` folder
 
 ## 🏗️ Repository Structure
 
