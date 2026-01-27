@@ -1,4 +1,4 @@
-# How to Publish an App to Bruce App Store
+# How to Publish an App/Theme to Bruce App Store
 
 This guide will walk you through the process of publishing your app or theme to the Bruce App Store repository.
 
