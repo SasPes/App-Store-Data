@@ -201,6 +201,7 @@ async function main() {
         const releaseData = {
             category: category,
             count: apps.length,
+            lastUpdated: getLastCommitTimestampForCategory(category, categorizedApps),
             apps: filteredApps
         };
         
