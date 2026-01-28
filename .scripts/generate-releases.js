@@ -161,27 +161,70 @@ async function main() {
         }
     }
 
-    // Generate categories.json file with categories that have releases
+    // Commit the category files to git
+    try {
+        console.log('📝 Committing category files to git...');
+        execSync('git add releases/category-*.json', { cwd: path.join(__dirname, '..') });
+        
+        // Check if there are any changes to commit
+        const gitStatus = execSync('git status --porcelain releases/category-*.json', { 
+            encoding: 'utf8', 
+            cwd: path.join(__dirname, '..') 
+        }).trim();
+        
+        if (gitStatus) {
+            execSync('git commit -m "Update category release files"', { cwd: path.join(__dirname, '..') });
+            console.log('✅ Category files committed to git');
+        } else {
+            console.log('ℹ️ No changes to commit for category files');
+        }
+    } catch (gitError) {
+        console.warn('⚠️ Could not commit category files to git:', gitError.message);
+    }
+
+    // Now get timestamps for each category file and generate categories.json
     if (categoriesWithReleases.length > 0) {
         const categoriesFilePath = path.join(releasesDir, 'categories.json');
-
-// Create categories array with counts (timestamps will be added later)
-        const categoriesWithCounts = categoriesWithReleases.map(category => {
+        
+        // Create categories array with counts and timestamps from git
+        const categoriesWithTimestamps = categoriesWithReleases.map(category => {
             const categorySlug = category.toLowerCase().replace(/[^a-z0-9]/g, '-');
+            const categoryFileName = `category-${categorySlug}.json`;
+            
+            let lastUpdated = Math.floor(Date.now() / 1000); // Default to current time
+            
+            try {
+                // Get the last commit timestamp for this specific category file
+                const gitCommand = `git log -1 --format=%ct -- "releases/${categoryFileName}"`;
+                const result = execSync(gitCommand, {
+                    encoding: 'utf8',
+                    stdio: 'pipe',
+                    cwd: path.join(__dirname, '..')
+                }).trim();
+                
+                if (result) {
+                    lastUpdated = parseInt(result);
+                    console.log(`📅 Category ${category}: ${lastUpdated} (${new Date(lastUpdated * 1000).toISOString()})`);
+                }
+            } catch (gitError) {
+                console.warn(`⚠️ Could not get git timestamp for ${categoryFileName}`);
+            }
             
             return {
                 name: category,
                 slug: categorySlug,
-                count: categorizedApps[category].length
+                count: categorizedApps[category].length,
+                lastUpdated: lastUpdated
             };
         }).sort((a, b) => a.name.localeCompare(b.name));
-
+        
         const categoriesData = {
             totalCategories: categoriesWithReleases.length,
             totalApps: Object.values(categorizedApps).reduce((sum, apps) => sum + apps.length, 0),
-            categories: categoriesWithCounts
+            lastUpdated: Math.floor(Date.now() / 1000),
+            categories: categoriesWithTimestamps
         };
-
+        
         try {
             fs.writeFileSync(categoriesFilePath, JSON.stringify(categoriesData, null, 2), 'utf8');
             console.log(`📄 Generated categories.json with ${categoriesWithReleases.length} categories`);
