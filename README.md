@@ -344,8 +344,8 @@ repositories/johndoe/bruce-themes/Dark Theme/
   "commit": "b2c3d4e5f6789012345678901234567890abcdef",
   "owner": "johndoe",
   "repo": "bruce-themes",
-  "path": "/themes/",
   "supported-screen-size": "320x170",
+  "path": "/themes/",
   "files": [
     "wifi.gif",
     ...
