@@ -422,7 +422,9 @@ async function validateMetadata(filePath, dir) {
                         if (typeof file === 'string') {
                             // String format: direct file path
                             const cleanFilePath = file.startsWith('/') ? file.substring(1) : file;
-                            filePath = path.posix.join(metadata.path === '/' ? '' : metadata.path, cleanFilePath);
+                            // Normalize metadata.path and join with file path
+                            const basePath = metadata.path === '/' ? '' : metadata.path.replace(/^\/+|\/+$/g, '');
+                            filePath = basePath ? `${basePath}/${cleanFilePath}` : cleanFilePath;
                             displayPath = file;
                         } else if (typeof file === 'object' && file !== null) {
                             // Object format: must have 'source' and 'destination' properties
@@ -438,7 +440,9 @@ async function validateMetadata(filePath, dir) {
                             }
                             // Use source path for verification, combined with metadata.path
                             const cleanSourcePath = file.source.startsWith('/') ? file.source.substring(1) : file.source;
-                            filePath = path.posix.join(metadata.path === '/' ? '' : metadata.path, cleanSourcePath);
+                            // Normalize metadata.path and join with source path
+                            const basePath = metadata.path === '/' ? '' : metadata.path.replace(/^\/+|\/+$/g, '');
+                            filePath = basePath ? `${basePath}/${cleanSourcePath}` : cleanSourcePath;
                             displayPath = `${file.source} → ${file.destination}`;
                         } else {
                             console.log(`      - ❌ File entry must be a string or object with 'source' and 'destination' properties: \`${file}\``);
@@ -448,9 +452,9 @@ async function validateMetadata(filePath, dir) {
                         
                         // Check if file exists in the repository tree
                         if (repositoryFiles.has(filePath)) {
-                            console.log(`      - ✅ File exists at commit: \`${displayPath}\``);
+                            console.log(`      - ✅ File exists at commit: \`${displayPath}\` (path: ${filePath})`);
                         } else {
-                            console.log(`      - ❌ File not found at commit \`${metadata.commit}...\`: \`${displayPath}\``);
+                            console.log(`      - ❌ File not found at commit \`${metadata.commit}...\`: \`${displayPath}\` (expected path: ${filePath})`);
                             hasErrors = true;
                         }
                     }
