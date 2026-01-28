@@ -239,14 +239,18 @@ async function main() {
     if (categoriesWithReleases.length > 0) {
         const categoriesFilePath = path.join(releasesDir, 'categories.json');
         
-        // Create categories array with counts
+        // Create categories array with counts and lastUpdated timestamps
         const categoriesWithCounts = categoriesWithReleases.map(category => {
             const categorySlug = category.toLowerCase().replace(/[^a-z0-9]/g, '-');
+            
+            // Get last commit timestamp for this category's metadata files
+            const lastUpdated = getLastCommitTimestampForCategory(category, categorizedApps);
             
             return {
                 name: category,
                 slug: categorySlug,
-                count: categorizedApps[category].length
+                count: categorizedApps[category].length,
+                lastUpdated: lastUpdated
             };
         }).sort((a, b) => a.name.localeCompare(b.name));
         
