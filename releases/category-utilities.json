@@ -5,21 +5,21 @@
     {
       "name": "Calculator",
       "description": "Calculator",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "supported-devices": "M5Stick.*",
       "slug": "BruceDevices/firmware/Calculator"
     },
     {
       "name": "Calculator",
       "description": "Calculator",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "supported-devices": "T-Embed.*",
       "slug": "BruceDevices/firmware/Calculator"
     },
     {
       "name": "Crypto Prices",
       "description": "Track real-time crypto prices",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "slug": "BruceDevices/firmware/Crypto Prices"
     },
     {
@@ -37,7 +37,7 @@
     {
       "name": "Web Browser",
       "description": "Very basic web browser",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "slug": "BruceDevices/firmware/Web Browser"
     }
   ]

@@ -1,50 +1,57 @@
 {
   "category": "Games",
-  "count": 7,
+  "count": 8,
   "apps": [
+    {
+      "name": "Arcade Games",
+      "description": "Collection of arcade games",
+      "version": "1.0.1",
+      "supported-devices": "M5Stick.*",
+      "slug": "BruceDevices/firmware/Arcade Games"
+    },
     {
       "name": "Dino",
       "description": "Dino game",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "supported-devices": "T-Embed.*",
       "slug": "BruceDevices/firmware/Dino"
     },
     {
       "name": "Highway Racer",
       "description": "Car racing game",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "slug": "BruceDevices/firmware/Highway Racer"
     },
     {
       "name": "Ping Pong",
       "description": "Ping Pong game",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "slug": "BruceDevices/firmware/Ping Pong"
     },
     {
       "name": "Snake",
       "description": "Snake game",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "supported-devices": "Cardputer.*",
       "slug": "BruceDevices/firmware/Snake"
     },
     {
       "name": "Snake",
       "description": "Snake game",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "supported-devices": "(M5Stick.*|M5Stack Core.*)",
       "slug": "BruceDevices/firmware/Snake"
     },
     {
       "name": "Space Shooter",
       "description": "Space Shooter game",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "slug": "BruceDevices/firmware/Space Shooter"
     },
     {
       "name": "Tamagochi",
       "description": "Tamagochi virtual pet",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "slug": "BruceDevices/firmware/Tamagochi"
     }
   ]

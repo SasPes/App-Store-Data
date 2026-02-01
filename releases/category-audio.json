@@ -5,7 +5,7 @@
     {
       "name": "DTMF Tones",
       "description": "Generate DTMF tones",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "slug": "BruceDevices/firmware/DTMF Tones"
     },
     {
