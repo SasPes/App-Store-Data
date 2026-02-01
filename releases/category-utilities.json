@@ -7,14 +7,14 @@
       "description": "Calculator",
       "version": "1.0.1",
       "supported-devices": "M5Stick.*",
-      "slug": "BruceDevices/firmware/Calculator"
+      "slug": "BruceDevices/firmware/Calculator M5 Stick"
     },
     {
       "name": "Calculator",
       "description": "Calculator",
       "version": "1.0.1",
       "supported-devices": "T-Embed.*",
-      "slug": "BruceDevices/firmware/Calculator"
+      "slug": "BruceDevices/firmware/Calculator T-Embed"
     },
     {
       "name": "Crypto Prices",

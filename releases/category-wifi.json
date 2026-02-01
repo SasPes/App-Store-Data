@@ -6,7 +6,7 @@
       "name": "WiFi Brute Force",
       "description": "Brute force WiFi network password with dictionary attack",
       "version": "1.0.1",
-      "slug": "BruceDevices/firmware/WiFi Brute Force"
+      "slug": "BruceDevices/firmware/RF Brute Force"
     }
   ]
 }

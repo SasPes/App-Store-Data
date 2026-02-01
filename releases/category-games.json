@@ -33,14 +33,14 @@
       "description": "Snake game",
       "version": "1.0.1",
       "supported-devices": "Cardputer.*",
-      "slug": "BruceDevices/firmware/Snake"
+      "slug": "BruceDevices/firmware/Snake Cardputer"
     },
     {
       "name": "Snake",
       "description": "Snake game",
       "version": "1.0.1",
       "supported-devices": "(M5Stick.*|M5Stack Core.*)",
-      "slug": "BruceDevices/firmware/Snake"
+      "slug": "BruceDevices/firmware/Snake M5 Stick"
     },
     {
       "name": "Space Shooter",
