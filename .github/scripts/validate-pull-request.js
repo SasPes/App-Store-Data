@@ -138,7 +138,7 @@ function gitCommand(command) {
 // Function to load valid categories from categories.json
 function loadValidCategories() {
     try {
-        const categoriesPath = path.join(__dirname, '..', 'categories.json');
+        const categoriesPath = path.join(__dirname, '..', '..', 'categories.json');
         const categoriesContent = fs.readFileSync(categoriesPath, 'utf8');
         const categoriesData = JSON.parse(categoriesContent);
 
@@ -153,7 +153,7 @@ function loadValidCategories() {
 // Function to load supported devices from supported-devices.json
 function loadSupportedDevices() {
     try {
-        const devicesPath = path.join(__dirname, '..', 'supported-devices.json');
+        const devicesPath = path.join(__dirname, '..', '..', 'supported-devices.json');
         const devicesContent = fs.readFileSync(devicesPath, 'utf8');
         const devicesData = JSON.parse(devicesContent);
 
